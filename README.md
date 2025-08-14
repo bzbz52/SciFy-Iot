@@ -1,14 +1,15 @@
 # 🚀 SciFi-IOT Control System
 
-A complete IoT device control platform that lets you command ESP32/ESP8266 devices from anywhere in the world! Perfect for students, makers, and anyone wanting to build smart devices.
+A complete **IoT device control platform** that lets you command ESP32/ESP8266 devices from anywhere in the world — now available at **[https://scify-iot.in](https://scify-iot.in)**!  
+Perfect for students, makers, and anyone wanting to build smart devices.
 
 ![Project Banner](public/banner.png) <!-- Optional: Add screenshot -->
 
 ---
 
-## 🌍 Live Demo
-**GitHub Pages:** [https://yourusername.github.io/SciFi-IOT](https://yourusername.github.io/SciFi-IOT)  
-**Backend API:** `https://scifi-iot-backend.herokuapp.com`
+## 🌍 Live Platform
+- **Website:** [https://scify-iot.in](https://scify-iot.in)  
+- **API Base URL:** `https://api.scify-iot.in`
 
 ---
 
@@ -31,8 +32,8 @@ Your Phone/Computer  →  Internet  →  SciFi-IOT Platform  →  Your Device
      (Send Command)      (Cloud)      (Process & Route)      (LED turns on!)
 ```
 
-1. **You create a project** and get special "keys" (like passwords for your devices)
-2. **Program your ESP32/ESP8266** with these keys so it knows it's yours
+1. **Create a project** in your control panel to get your **API Key** and **Secret Key**
+2. **Flash your ESP32/ESP8266** with the provided example code & your keys
 3. **Send commands** from any phone, computer, or website
 4. **Your device receives** and executes the commands instantly!
 
@@ -75,54 +76,11 @@ Your Phone/Computer  →  Internet  →  SciFi-IOT Platform  →  Your Device
 
 ---
 
-## 📦 Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/YOUR_GITHUB_USERNAME/SciFi-IOT.git
-cd SciFi-IOT
-
-# Install dependencies
-npm install
-
-# Run locally
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
----
-
-## 🚀 Deploy to GitHub Pages
-
-```bash
-# Install GitHub Pages deploy tool
-npm install gh-pages --save-dev
-
-# Add these lines to package.json
-# "scripts": {
-#   "predeploy": "npm run build",
-#   "deploy": "gh-pages -d dist"
-# }
-
-# Deploy
-npm run deploy
-```
-
-After deployment, your site will be live at:  
-`https://YOUR_GITHUB_USERNAME.github.io/SciFi-IOT`
-
----
-
 ## 📡 API Documentation
 
 ### Main Endpoint
 ```
-POST https://scifi-iot-backend.herokuapp.com/sendSignal
+POST https://api.scify-iot.in/sendSignal
 ```
 
 ### Request Format
@@ -140,7 +98,7 @@ POST https://scifi-iot-backend.herokuapp.com/sendSignal
 
 **JavaScript**
 ```javascript
-fetch("https://scifi-iot-backend.herokuapp.com/sendSignal", {
+fetch("https://api.scify-iot.in/sendSignal", {
   method: "POST",
   headers: {"Content-Type": "application/json"},
   body: JSON.stringify({
@@ -156,7 +114,7 @@ fetch("https://scifi-iot-backend.herokuapp.com/sendSignal", {
 import requests
 
 response = requests.post(
-  "https://scifi-iot-backend.herokuapp.com/sendSignal",
+  "https://api.scify-iot.in/sendSignal",
   json={
     "apiKey": "your-api-key",
     "secret": "your-secret-key",
@@ -185,9 +143,9 @@ void setup() {
 
 void loop() {
   HTTPClient http;
-  http.begin("https://scifi-iot-backend.herokuapp.com/getCommands");
+  http.begin("https://api.scify-iot.in/getCommands");
   http.addHeader("Content-Type", "application/json");
-  String payload = "{"apiKey":"" + apiKey + ""}";
+  String payload = "{\"apiKey\":\"" + apiKey + "\"}";
   int httpCode = http.POST(payload);
 
   if (httpCode == 200) {
@@ -204,25 +162,6 @@ void loop() {
 
 ---
 
-## 🛠 Repository Structure
-
-```
-SciFi-IOT/
-├── public/            # Static assets
-├── src/               # Frontend code
-├── examples/          # Arduino, JS, Python samples
-├── README.md
-└── package.json
-```
-
----
-
-## 📷 Screenshots
-
-(Add control panel & device screenshots here)
-
----
-
 ## 📱 What You Can Build
 
 - Smart lights
@@ -231,21 +170,6 @@ SciFi-IOT/
 - Robot cars
 - Pet feeders
 - Weather stations
-
----
-
-## 🎯 Learning Path
-
-### Beginner
-- Create a project, upload LED code, test with control panel
-
-### Intermediate
-- Add sensors, servos, relays
-- Create custom commands
-
-### Advanced
-- Build mobile/web dashboards
-- Integrate multiple devices
 
 ---
 
@@ -266,18 +190,8 @@ MIT License — free to use and modify.
 
 ---
 
-## 🤝 Contributing
-
-1. Fork the repo
-2. Create a branch (`git checkout -b feature-name`)
-3. Commit changes (`git commit -m 'Added feature'`)
-4. Push to branch (`git push origin feature-name`)
-5. Create Pull Request
-
----
-
 ## 🆘 Support
 
 - Open an **issue** in this repo  
 - Check Troubleshooting section in docs  
-- Use Serial Monitor for device debugging
+- Use Serial Monitor for device debugging  

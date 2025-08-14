@@ -1,10 +1,9 @@
 import requests
 import time
 
-# Credentials from your Firebase DB export
 API_KEY = "iDxgiOHymWfgGyeVv6OsCwrNinu7X4t5"
 SECRET = "LdUIuOuAjVF7xbe1wM0lVX6yFiMI1CTrx5nXVqjKOz04WrYu145QFkmijXFwfjlU"
-BASE_URL = "https://ecoplas.tech"  # Change to http://localhost:3000 if testing locally
+BASE_URL = "https://ecoplas.tech"  
 
 def listen_for_commands():
     last_command = None
