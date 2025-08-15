@@ -29,44 +29,23 @@ Your Phone/Computer  →  Internet  →  SciFy-IOT Platform  →  Your Device
      (Send Command)      (Cloud)      (Process & Route)      (LED turns on!)
 ```
 
-1. **Create a project** in your control panel to get your **API Key** and **Secret Key**
-2. **Flash your ESP32/ESP8266** with the provided example code & your keys
-3. **Send commands** from any phone, computer, or website
-4. **Your device receives** and executes the commands instantly!
-
 ---
 
-## 🛠 Arduino Library Installation
+# 📥 Receiving Commands on ESP (Arduino Library)
 
-1. **Download the Library**
-   - Method 1: Click [Download ZIP](https://github.com/AlphaNodesDev/SciFy-Iot/archive/refs/heads/main.zip) from this repo and add it to Arduino IDE via  
-     `Sketch → Include Library → Add .ZIP Library…`
-   - Method 2: (Coming Soon) Install directly from Arduino Library Manager by searching `SciFyIot`.
+This method is for **ESP32/ESP8266 devices** to receive commands from the SciFy-IOT platform.
 
-2. **Include in Your Code**
+### 1️⃣ Install the Library
+- Download ZIP: [Click Here](https://github.com/AlphaNodesDev/SciFy-Iot/archive/refs/heads/main.zip)  
+- In Arduino IDE: `Sketch → Include Library → Add .ZIP Library…`
+
+### 2️⃣ Basic Example
 ```cpp
-#include <WiFi.h>      // Or <ESP8266WiFi.h> for ESP8266
-#include <SciFyIot.h>
-```
-
-3. **Open the Example**
-   - In Arduino IDE: `File → Examples → SciFyIot → BasicControl`
-
-4. **Upload & Run**
-   - Enter your WiFi credentials and your SciFy-IOT API keys
-   - Upload to your ESP32/ESP8266
-   - Use the dashboard at [scify-iot.in](https://scify-iot.in) to send commands
-
----
-
-## 📡 Basic Arduino Example
-
-```cpp
-#include <WiFi.h>        // ESP32 WiFi library
+#include <WiFi.h>        // Or <ESP8266WiFi.h> for ESP8266
 #include <SciFyIot.h>    // SciFy-IOT library
 
-const char* ssid = "Wokwi-GUEST"; // WiFi SSID
-const char* password = "";        // WiFi password
+const char* ssid = "Wokwi-GUEST"; 
+const char* password = "";
 
 SciFyIot iot("YOUR_API_KEY", "YOUR_SECRET_KEY");
 
@@ -75,7 +54,6 @@ void setup() {
   pinMode(2, OUTPUT); // Onboard LED
 
   WiFi.begin(ssid, password);
-  Serial.print("Connecting to WiFi");
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
@@ -96,53 +74,39 @@ void loop() {
 
 ---
 
-## 🌟 Features
-### 🎮 Control Panel
-- Quick Buttons: One-click commands (LED ON, LED OFF, etc.)
-- Custom Commands: Create your own
-- String & JSON support
-- Real-time communication
+# 📤 Sending Commands to Device (API)
 
-### 🔧 Device Support
-- ESP32 & ESP8266
-- Arduino IDE compatible
-- WiFi communication
-- Multiple devices per project
+This is for **custom apps, websites, or scripts** to send commands to your ESP devices through SciFy-IOT.
 
-### 💻 Programming Languages
-- JavaScript
-- Python
-- cURL
-- Any language that can make HTTP requests
-
-### 🔐 Security
-- API Keys & Secret Keys
-- Project isolation
-- Encrypted communication
-
----
-
-## 📡 API Documentation
-
-### Main Endpoint
+### Endpoint
 ```
 POST https://api.scify-iot.in/sendSignal
 ```
 
-### Request Format
+### JSON Body
 ```json
 {
-  "apiKey": "your-api-key-here",
-  "secret": "your-secret-key-here", 
+  "apiKey": "your-api-key",
+  "secret": "your-secret-key",
   "command": "LED_ON"
 }
 ```
 
----
+### Example in Python
+```python
+import requests
 
-## ⚡ API Quick Examples
+requests.post(
+  "https://api.scify-iot.in/sendSignal",
+  json={
+    "apiKey": "your-api-key",
+    "secret": "your-secret-key",
+    "command": "LED_ON"
+  }
+)
+```
 
-**JavaScript**
+### Example in JavaScript
 ```javascript
 fetch("https://api.scify-iot.in/sendSignal", {
   method: "POST",
@@ -153,21 +117,6 @@ fetch("https://api.scify-iot.in/sendSignal", {
     command: "LED_ON"
   })
 });
-```
-
-**Python**
-```python
-import requests
-
-response = requests.post(
-  "https://api.scify-iot.in/sendSignal",
-  json={
-    "apiKey": "your-api-key",
-    "secret": "your-secret-key",
-    "command": "LED_ON"
-  }
-)
-print(response.json())
 ```
 
 ---
