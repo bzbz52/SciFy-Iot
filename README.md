@@ -1,20 +1,18 @@
-# 🚀 SciFi-IOT Control System
+# 🚀 SciFy-IOT Control System
 
 A complete **IoT device control platform** that lets you command ESP32/ESP8266 devices from anywhere in the world — now available at **[https://scify-iot.in](https://scify-iot.in)**!  
 Perfect for students, makers, and anyone wanting to build smart devices.
-
-![Project Banner](public/banner.png) <!-- Optional: Add screenshot -->
 
 ---
 
 ## 🌍 Live Platform
 - **Website:** [https://scify-iot.in](https://scify-iot.in)  
 - **API Base URL:** `https://api.scify-iot.in`
+- **GitHub Repo:** [https://github.com/AlphaNodesDev/SciFy-Iot](https://github.com/AlphaNodesDev/SciFy-Iot)
 
 ---
 
 ## 🎯 What This System Does
-
 Think of this as a **remote control for your electronics** that works from anywhere with internet:
 
 - 💡 Turn lights on/off from your phone
@@ -26,9 +24,8 @@ Think of this as a **remote control for your electronics** that works from anywh
 ---
 
 ## 🧠 How It Works (Simple Explanation)
-
 ```
-Your Phone/Computer  →  Internet  →  SciFi-IOT Platform  →  Your Device
+Your Phone/Computer  →  Internet  →  SciFy-IOT Platform  →  Your Device
      (Send Command)      (Cloud)      (Process & Route)      (LED turns on!)
 ```
 
@@ -39,18 +36,67 @@ Your Phone/Computer  →  Internet  →  SciFi-IOT Platform  →  Your Device
 
 ---
 
-## 🎓 Perfect for Students
+## 🛠 Arduino Library Installation
 
-- ✅ No complex server setup required
-- ✅ Works with simple Arduino code
-- ✅ Visual interface for testing
-- ✅ Detailed step-by-step guides
-- ✅ Ready-to-copy code examples
+1. **Download the Library**
+   - Method 1: Click [Download ZIP](https://github.com/AlphaNodesDev/SciFy-Iot/archive/refs/heads/main.zip) from this repo and add it to Arduino IDE via  
+     `Sketch → Include Library → Add .ZIP Library…`
+   - Method 2: (Coming Soon) Install directly from Arduino Library Manager by searching `SciFyIot`.
+
+2. **Include in Your Code**
+```cpp
+#include <WiFi.h>      // Or <ESP8266WiFi.h> for ESP8266
+#include <SciFyIot.h>
+```
+
+3. **Open the Example**
+   - In Arduino IDE: `File → Examples → SciFyIot → BasicControl`
+
+4. **Upload & Run**
+   - Enter your WiFi credentials and your SciFy-IOT API keys
+   - Upload to your ESP32/ESP8266
+   - Use the dashboard at [scify-iot.in](https://scify-iot.in) to send commands
+
+---
+
+## 📡 Basic Arduino Example
+
+```cpp
+#include <WiFi.h>        // ESP32 WiFi library
+#include <SciFyIot.h>    // SciFy-IOT library
+
+const char* ssid = "Wokwi-GUEST"; // WiFi SSID
+const char* password = "";        // WiFi password
+
+SciFyIot iot("YOUR_API_KEY", "YOUR_SECRET_KEY");
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(2, OUTPUT); // Onboard LED
+
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nWiFi connected!");
+}
+
+void loop() {
+  String cmd = iot.getLatestCommand();
+  if (cmd == "LED_ON") {
+    digitalWrite(2, HIGH);
+  } else if (cmd == "LED_OFF") {
+    digitalWrite(2, LOW);
+  }
+  delay(2000);
+}
+```
 
 ---
 
 ## 🌟 Features
-
 ### 🎮 Control Panel
 - Quick Buttons: One-click commands (LED ON, LED OFF, etc.)
 - Custom Commands: Create your own
@@ -94,7 +140,7 @@ POST https://api.scify-iot.in/sendSignal
 
 ---
 
-## ⚡ Quick Examples
+## ⚡ API Quick Examples
 
 **JavaScript**
 ```javascript
@@ -124,46 +170,9 @@ response = requests.post(
 print(response.json())
 ```
 
-**Arduino**
-```cpp
-#include <WiFi.h>
-#include <HTTPClient.h>
-#include <ArduinoJson.h>
-
-const char* ssid = "YOUR_WIFI_NAME";
-const char* password = "YOUR_WIFI_PASSWORD";
-const String apiKey = "your-api-key-here";
-
-void setup() {
-  Serial.begin(115200);
-  pinMode(2, OUTPUT);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) { delay(1000); }
-}
-
-void loop() {
-  HTTPClient http;
-  http.begin("https://api.scify-iot.in/getCommands");
-  http.addHeader("Content-Type", "application/json");
-  String payload = "{\"apiKey\":\"" + apiKey + "\"}";
-  int httpCode = http.POST(payload);
-
-  if (httpCode == 200) {
-    DynamicJsonDocument doc(1024);
-    deserializeJson(doc, http.getString());
-    String command = doc["command"];
-    if (command == "LED_ON") digitalWrite(2, HIGH);
-    else if (command == "LED_OFF") digitalWrite(2, LOW);
-  }
-  http.end();
-  delay(5000);
-}
-```
-
 ---
 
 ## 📱 What You Can Build
-
 - Smart lights
 - Smart doors
 - Temperature monitors
@@ -174,7 +183,6 @@ void loop() {
 ---
 
 ## 🔐 Security Best Practices
-
 ✅ Keep keys private  
 ✅ Use separate projects for separate devices  
 ✅ Secure your WiFi  
@@ -185,13 +193,11 @@ void loop() {
 ---
 
 ## 📜 License
-
 MIT License — free to use and modify.
 
 ---
 
 ## 🆘 Support
-
 - Open an **issue** in this repo  
 - Check Troubleshooting section in docs  
-- Use Serial Monitor for device debugging  
+- Use Serial Monitor for device debugging
