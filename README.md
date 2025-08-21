@@ -6,7 +6,7 @@ Perfect for students, makers, and anyone wanting to build smart devices.
 ---
 
 ## 🌍 Live Platform
-- **Website:** [[https://scify-iot.in](https://connect.scify-itech.com)  ](https://connect.scify-tech.com/)
+- **Website:** [[https://connect.scify-itech.com](https://connect.scify-itech.com)  ](https://connect.scify-tech.com/)
 - **API Base URL:** `https://api.scify-iot.in`
 - **GitHub Repo:** [https://github.com/AlphaNodesDev/SciFy-Iot](https://github.com/AlphaNodesDev/SciFy-Iot)
 
