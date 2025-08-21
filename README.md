@@ -72,7 +72,7 @@ This system is designed to be **easy enough for 8th graders** to understand:
 ## 🔑 Getting Your API Keys
 
 ### Step 1: Create Account
-1. Visit [[https://connect.scify-tech.com](https://connect.scify-tech.com)](https://connect.scify-tech.com/)
+1. Visit [[https://connect.scify-tech.com](https://connect.scify-tech.com)]
 2. Click **"Sign Up"** and create your free account
 3. Verify your email address
 
