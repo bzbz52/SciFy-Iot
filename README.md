@@ -1,6 +1,6 @@
 # 🚀 SciFy-IOT Control System
 
-A complete **IoT device control platform** that lets you command ESP32/ESP8266 devices from anywhere in the world — now available at **[https://scify-iot.in](https://scify-iot.in)**!  
+A complete **IoT device control platform** that lets you command ESP32/ESP8266 devices from anywhere in the world — now available at **[https://connect.scify-itech.com](https://connect.scify-itech.com)**!  
 Perfect for students, makers, and anyone wanting to build smart devices.
 
 ---
