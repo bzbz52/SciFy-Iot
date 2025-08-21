@@ -1,12 +1,12 @@
 # 🚀 SciFy-IOT Control System
 
-A complete **IoT device control platform** that lets you command ESP32/ESP8266 devices from anywhere in the world — now available at **[https://connect.scify-itech.com](https://connect.scify-itech.com)**!  
+A complete **IoT device control platform** that lets you command ESP32/ESP8266 devices from anywhere in the world — now available at **[https://connect.scify-tech.com](https://connect.scify-tech.com)**!  
 Perfect for students, makers, and anyone wanting to build smart devices.
 
 ---
 
 ## 🌍 Live Platform
-- **Website:** [[https://connect.scify-itech.com](https://connect.scify-itech.com)  ](https://connect.scify-tech.com/)
+- **Website:** [[https://connect.scify-tech.com](https://connect.scify-tech.com)  ](https://connect.scify-tech.com/)
 - **API Base URL:** `https://api.scify-iot.in`
 - **GitHub Repo:** [https://github.com/AlphaNodesDev/SciFy-Iot](https://github.com/AlphaNodesDev/SciFy-Iot)
 
@@ -72,7 +72,7 @@ This system is designed to be **easy enough for 8th graders** to understand:
 ## 🔑 Getting Your API Keys
 
 ### Step 1: Create Account
-1. Visit [[https://scify-iot.in](https://scify-iot.in)](https://connect.scify-tech.com/)
+1. Visit [[https://connect.scify-tech.com](https://connect.scify-tech.com)](https://connect.scify-tech.com/)
 2. Click **"Sign Up"** and create your free account
 3. Verify your email address
 
