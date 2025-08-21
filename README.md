@@ -6,7 +6,7 @@ Perfect for students, makers, and anyone wanting to build smart devices.
 ---
 
 ## 🌍 Live Platform
-- **Website:** [https://scify-iot.in](https://scify-iot.in)  
+- **Website:** [[https://scify-iot.in](https://connect.scify-itech.com)  ](https://connect.scify-tech.com/)
 - **API Base URL:** `https://api.scify-iot.in`
 - **GitHub Repo:** [https://github.com/AlphaNodesDev/SciFy-Iot](https://github.com/AlphaNodesDev/SciFy-Iot)
 
@@ -72,7 +72,7 @@ This system is designed to be **easy enough for 8th graders** to understand:
 ## 🔑 Getting Your API Keys
 
 ### Step 1: Create Account
-1. Visit [https://scify-iot.in](https://scify-iot.in)
+1. Visit [[https://scify-iot.in](https://scify-iot.in)](https://connect.scify-tech.com/)
 2. Click **"Sign Up"** and create your free account
 3. Verify your email address
 
@@ -146,7 +146,7 @@ Follow the **"🔑 Getting Your API Keys"** section above to create your account
 
 ### 🔗 Main Endpoint
 ```
-POST https://api.scify-iot.in/sendSignal
+POST https://connect.scify-tech.com/sendSignal
 ```
 
 ### 📝 Request Format
@@ -161,7 +161,7 @@ POST https://api.scify-iot.in/sendSignal
 ### ⚡ Quick JavaScript Example
 ```javascript
 // Replace with your actual API keys
-fetch("https://api.scify-iot.in/sendSignal", {
+fetch("https://connect.scify-tech.com/sendSignal", {
   method: "POST",
   headers: {"Content-Type": "application/json"},
   body: JSON.stringify({
@@ -181,7 +181,7 @@ import requests
 
 # Replace with your actual API keys
 response = requests.post(
-  "https://api.scify-iot.in/sendSignal",
+  "https://connect.scify-tech.com/sendSignal",
   json={
     "apiKey": "your-api-key",
     "secret": "your-secret-key", 
@@ -195,7 +195,7 @@ print(f"Response: {response.json()}")
 
 ### Example with cURL
 ```bash
-curl -X POST https://api.scify-iot.in/sendSignal \
+curl -X POST https://connect.scify-tech.com/sendSignal \
   -H "Content-Type: application/json" \
   -d '{
     "apiKey": "your-api-key",
@@ -235,7 +235,7 @@ void loop() {
 
 void checkForCommands() {
   HTTPClient http;
-  http.begin("https://api.scify-iot.in/getCommands");
+  http.begin("https://connect.scify-tech.com/getCommands");
   http.addHeader("Content-Type", "application/json");
   
   String payload = "{\"apiKey\":\"" + apiKey + "\"}";
